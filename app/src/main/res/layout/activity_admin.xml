@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="10dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:id="@+id/txtTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Quản trị viên"
+            android:textAlignment="center"
+            android:textSize="35sp"
+            android:padding="16dp" />
+        <ImageView
+            android:id="@+id/btnlogout"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/ic_logout"
+            android:layout_gravity="center">
+        </ImageView>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layout1"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="@drawable/custtombutton"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_margin="10dp"
+        >
+        <TextView
+            android:id="@+id/txtDanhsachUser"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Người dùng"
+            android:layout_gravity="center"
+            android:textColor="#fffffe"
+            android:textSize="30dp"
+            android:layout_marginLeft="20dp">
+        </TextView>
+        <ImageView
+            android:id="@+id/btnDanhSachUser"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/arrow">
+        </ImageView>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="@drawable/custtombutton"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_margin="10dp"
+        >
+        <TextView
+            android:id="@+id/txtDanhsachPhim"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Phim"
+            android:layout_gravity="center"
+            android:textColor="#fffffe"
+            android:textSize="30dp"
+            android:layout_marginLeft="20dp">
+        </TextView>
+        <ImageView
+            android:id="@+id/btnDanhSachPhim"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/arrow">
+        </ImageView>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="@drawable/custtombutton"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_margin="10dp"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Diễn viên"
+            android:layout_gravity="center"
+            android:textColor="#fffffe"
+            android:textSize="30dp"
+            android:layout_marginLeft="20dp">
+        </TextView>
+        <ImageView
+            android:id="@+id/btnDanhSachDienVien"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/arrow">
+        </ImageView>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="@drawable/custtombutton"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_margin="10dp"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Thể loại"
+            android:layout_gravity="center"
+            android:textColor="#fffffe"
+            android:textSize="30dp"
+            android:layout_marginLeft="20dp">
+        </TextView>
+        <ImageView
+            android:id="@+id/btnDanhSachTheLoai"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/arrow">
+        </ImageView>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="@drawable/custtombutton"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_margin="10dp"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Thông báo"
+            android:layout_gravity="center"
+            android:textColor="#fffffe"
+            android:textSize="30dp"
+            android:layout_marginLeft="20dp">
+        </TextView>
+        <ImageView
+            android:id="@+id/btnDanhSachThongbao"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/arrow">
+        </ImageView>
+
+    </LinearLayout>
+
+</LinearLayout>
+
+
+
+</ScrollView>

@@ -1,0 +1,135 @@
+<!-- res/layout/activity_edit_film.xml -->
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:orientation="vertical"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:orientation="horizontal"
+            android:background="#ff6e6c">
+
+            <ImageView
+                android:id="@+id/btnBackToFilmDetailFromFilmEdit"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/ic_back"
+                android:layout_gravity="center"
+                android:layout_marginLeft="10dp"
+                android:layout_marginBottom="5dp">
+            </ImageView>
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textSize="20dp"
+                android:text="Thông tin phim"
+                android:textColor="@color/white"
+                android:layout_gravity="center"
+                android:textAlignment="center">
+            </TextView>
+        </LinearLayout>
+        <LinearLayout
+            android:orientation="vertical"
+            android:padding="16dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Poster:">
+
+            </TextView>
+            <ImageView
+                android:id="@+id/imgAvatarFilmEdit"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_gravity="center"
+                android:scaleType="centerCrop"
+                android:src="@drawable/ic_user"
+                android:layout_marginBottom="20dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tên phim:">
+            </TextView>
+            <EditText android:id="@+id/edtTitle" android:hint="Title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Năm sản xuất:">
+            </TextView>
+            <EditText android:id="@+id/edtYear" android:hint="Release Year"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Đạo diễn:">
+
+            </TextView>
+            <EditText android:id="@+id/edtDirector" android:hint="Director"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Nội dung chính:">
+
+            </TextView>
+            <EditText android:id="@+id/edtSynopsis" android:hint="Synopsis"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textMultiLine"
+                android:scrollHorizontally="false"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Trailer:">
+            </TextView>
+            <EditText android:id="@+id/edtTrailerUrl" android:hint="Trailer URL"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Thể loại:">
+            </TextView>
+
+            <Button android:id="@+id/btnSelectGenres" android:text="Chọn thể loại"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <TextView android:id="@+id/txtSelectedGenres"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="20dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Diễn viên">
+
+            </TextView>
+            <Button android:id="@+id/btnSelectActors" android:text="Chọn diễn viên"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextView android:id="@+id/txtSelectedActors"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="20dp"/>
+
+            <Button android:id="@+id/btnSave" android:text="Lưu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+
+
+    </LinearLayout>
+</ScrollView>

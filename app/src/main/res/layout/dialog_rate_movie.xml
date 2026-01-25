@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="20dp"
+    tools:ignore="MissingDefaultResource">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Đánh giá nội dung:" >
+        </TextView>
+
+        <RatingBar
+            android:id="@+id/ratingContent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:numStars="5"
+            android:stepSize="1.0" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Đánh giá hiệu ứng:" />
+        <RatingBar
+            android:id="@+id/ratingEffect"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:numStars="5"
+            android:stepSize="1.0" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Đánh giá diễn xuất:" />
+
+        <RatingBar
+            android:id="@+id/ratingCast"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:numStars="5"
+            android:stepSize="1.0" />
+
+        <EditText
+            android:id="@+id/editComment"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:hint="Nhận xét của bạn"
+            android:gravity="top"
+            android:inputType="textMultiLine" />
+
+    </LinearLayout>
+</LinearLayout>

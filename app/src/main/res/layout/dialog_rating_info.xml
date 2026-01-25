@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:padding="20dp"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/txtCastRating"
+        android:text="Cast Rating: "
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"/>
+    <TextView
+        android:id="@+id/txtContentRating"
+        android:text="Content Rating: "
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"/>
+    <TextView
+        android:id="@+id/txtEffectRating"
+        android:text="Effect Rating: "
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"/>
+    <TextView
+        android:id="@+id/txtRating"
+        android:text="Average Rating: "
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content" />
+    <TextView
+        android:id="@+id/txtReviewCount"
+        android:text="Số lượt đánh giá: "
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"/>
+
+    <TextView
+        android:text="Điểm ưu tiên: "
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"/>
+
+    <EditText
+        android:id="@+id/edtRatePoint"
+        android:hint="Nhập ratePoint mới"
+        android:inputType="numberDecimal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+</LinearLayout>

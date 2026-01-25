@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".User.UserActivity"
+    android:orientation="vertical"
+    android:background="#d1d1e9"
+    android:layout_marginBottom="5dp"
+    >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:orientation="horizontal"
+        android:background="#ff6e6c">
+
+        <ImageView
+            android:id="@+id/btnback"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/ic_back"
+            android:layout_gravity="center"
+            android:layout_marginLeft="10dp"
+            android:layout_marginBottom="5dp">
+
+        </ImageView>
+        <ImageView
+            android:id="@+id/imgAvatarUser"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:src="@drawable/ic_user"
+            android:layout_gravity="bottom"
+            android:layout_marginLeft="10dp"
+            android:layout_marginBottom="5dp">
+
+        </ImageView>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Xin chào "
+            android:textSize="20dp"
+            android:layout_gravity="bottom"
+            android:layout_marginLeft="20dp">
+        </TextView>
+        <TextView
+            android:id="@+id/txtUser"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tai khoan"
+            android:textSize="20dp"
+            android:layout_gravity="bottom"
+            android:layout_marginLeft="2dp">
+        </TextView>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layoutUpdate"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp"
+        android:background="#fffffe"
+        android:layout_margin="7dp">
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/ic_loop"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="10dp">
+
+        </ImageView>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cập nhật thông tin cá nhân"
+            android:textSize="20dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="20dp">
+
+        </TextView>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layoutPassword"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp"
+        android:background="#fffffe"
+        android:layout_margin="7dp">
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/ic_key"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="10dp">
+
+        </ImageView>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Đổi mật khẩu"
+            android:textSize="20dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="20dp">
+
+        </TextView>
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/layoutDeleteAccount"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp"
+        android:background="#fffffe"
+        android:layout_margin="7dp">
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/ic_delete"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="10dp">
+
+        </ImageView>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Xóa tài khoản"
+            android:textSize="20dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="20dp">
+
+        </TextView>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layoutComment"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp"
+        android:background="#fffffe"
+        android:layout_margin="7dp">
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/ic_comment"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="10dp">
+
+        </ImageView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Đánh giá của bạn"
+            android:textSize="20dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="20dp">
+
+        </TextView>
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/layoutNot"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp"
+        android:background="#fffffe"
+        android:layout_margin="7dp">
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/ic_star"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="10dp">
+
+        </ImageView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Thông báo"
+            android:textSize="20dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="20dp">
+
+        </TextView>
+    </LinearLayout>
+
+</LinearLayout>

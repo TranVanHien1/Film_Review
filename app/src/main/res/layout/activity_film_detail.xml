@@ -1,0 +1,165 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#d1d1e9">
+
+
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:orientation="horizontal"
+            android:background="#ff6e6c">
+
+            <ImageView
+                android:id="@+id/btnBackToFilmListFromDetail"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/ic_back"
+                android:layout_gravity="center"
+                android:layout_marginLeft="10dp"
+                android:layout_marginBottom="5dp">
+            </ImageView>
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Chi tiết phim"
+                android:textSize="20dp"
+                android:textColor="@color/white"
+                android:layout_gravity="center"
+                android:textAlignment="center">
+
+            </TextView>
+            <ImageView
+                android:id="@+id/btnDetail"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/ic_detail2"
+                android:layout_gravity="center"
+                android:layout_marginLeft="5dp"
+                android:layout_marginBottom="5dp">
+            </ImageView>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="20dp">
+            <ImageView
+                android:id="@+id/imgAvatarFilm"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_gravity="center"
+                android:scaleType="centerCrop"
+                android:src="@drawable/ic_user"
+                android:layout_marginBottom="20dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tên phim:">
+
+            </TextView>
+            <EditText
+                android:id="@+id/dtFilmName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tên"
+                android:layout_margin="10dp"
+                android:enabled="false">
+            </EditText>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Năm sản xuất:">
+            </TextView>
+            <EditText
+                android:id="@+id/dtYear"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Username"
+                android:layout_margin="10dp"
+                android:enabled="false">
+            </EditText>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Đạo diễn:">
+
+            </TextView>
+            <EditText
+                android:id="@+id/dtDirector"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Username"
+                android:layout_margin="10dp"
+                android:enabled="false">
+            </EditText>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Nội dung:">
+
+            </TextView>
+            <EditText
+                android:id="@+id/dtSynopsis"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Username"
+                android:layout_margin="10dp"
+                android:enabled="false">
+            </EditText>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Thể loại:">
+
+            </TextView>
+            <TextView
+                android:id="@+id/dtGenres"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="thể loại"
+                android:layout_margin="10dp">
+            </TextView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Diễn viên:">
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/dtActors"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="diễn viên"
+                android:layout_margin="10dp">
+            </TextView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Trailer:">
+
+            </TextView>
+            <EditText
+                android:id="@+id/dtTrailer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Username"
+                android:layout_margin="10dp"
+                android:enabled="false">
+            </EditText>
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

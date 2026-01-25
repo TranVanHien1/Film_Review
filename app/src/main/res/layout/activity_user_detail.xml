@@ -1,0 +1,126 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#d1d1e9">
+
+
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:orientation="horizontal"
+            android:background="#ff6e6c">
+
+            <ImageView
+                android:id="@+id/btnBackToUserListFromDetail"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/ic_back"
+                android:layout_gravity="center"
+                android:layout_marginLeft="10dp"
+                android:layout_marginBottom="5dp">
+            </ImageView>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Chi tiết tài khoản"
+                android:textSize="20dp"
+                android:textColor="@color/white"
+                android:layout_gravity="center"
+                android:textAlignment="center">
+
+            </TextView>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="20dp">
+            <ImageView
+                android:id="@+id/imgAvatar"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_gravity="center"
+                android:scaleType="centerCrop"
+                android:src="@drawable/ic_user"
+                android:layout_marginBottom="20dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tên tài khoản:">
+
+            </TextView>
+            <EditText
+                android:id="@+id/dtUsername"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Username"
+                android:layout_margin="10dp"
+                android:enabled="false">
+            </EditText>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Email đăng nhập:">
+            </TextView>
+            <EditText
+                android:id="@+id/dtEmail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Username"
+                android:layout_margin="10dp"
+                android:enabled="false">
+            </EditText>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Giới tính:">
+
+            </TextView>
+            <EditText
+                android:id="@+id/dtGender"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Username"
+                android:layout_margin="10dp"
+                android:enabled="false">
+            </EditText>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Ngày sinh:">
+
+            </TextView>
+            <EditText
+                android:id="@+id/dtDateOfBirth"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Username"
+                android:layout_margin="10dp"
+                android:enabled="false">
+            </EditText>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ID người dùng:">
+
+            </TextView>
+            <EditText
+                android:id="@+id/dtUserID"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Username"
+                android:layout_margin="10dp"
+                android:enabled="false">
+            </EditText>
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>
