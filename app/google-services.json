@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "356945516586",
+    "project_id": "danhgiaphim-cd95d",
+    "storage_bucket": "danhgiaphim-cd95d.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:356945516586:android:c91558f991466d1c3c0b53",
+        "android_client_info": {
+          "package_name": "com.example.danhgiaphim"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA3KgKj33X9iwxSI-BHFF5xQcipCA-_o5o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
