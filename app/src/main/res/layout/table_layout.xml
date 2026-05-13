@@ -1,54 +1,74 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="100dp"
-    android:orientation="horizontal"
-    android:layout_margin="10dp">
+    android:layout_height="96dp"
+    android:layout_marginStart="4dp"
+    android:layout_marginTop="8dp"
+    android:layout_marginEnd="4dp"
+    android:layout_marginBottom="8dp"
+    android:clickable="true"
+    android:focusable="true"
+    android:foreground="?attr/selectableItemBackground"
+    app:cardBackgroundColor="@color/white"
+    app:cardCornerRadius="8dp"
+    app:cardElevation="3dp"
+    app:strokeColor="#F0DEDA"
+    app:strokeWidth="1dp">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:background="@drawable/custtombutton">
+        android:layout_height="match_parent"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingStart="14dp"
+        android:paddingEnd="12dp">
+
         <ImageView
             android:id="@+id/imgAvatarUserList"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:src="@drawable/ic_user"
-            android:layout_gravity="center"
-            android:layout_marginLeft="10dp">
-        </ImageView>
+            android:layout_width="62dp"
+            android:layout_height="62dp"
+            android:background="@drawable/bg_actor_avatar"
+            android:padding="3dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_user" />
+
         <LinearLayout
             android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:layout_weight="1">
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
             <TextView
                 android:id="@+id/txtUsername"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Danh sách"
-                android:textColor="#1f1235"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="20dp">
-            </TextView>
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:textColor="@color/app_text"
+                android:textSize="17sp"
+                android:textStyle="bold"
+                tools:text="Tên người dùng" />
+
             <TextView
                 android:id="@+id/txtEmailList"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Danh sách"
-                android:textColor="#1f1235"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="20dp">
-            </TextView>
+                android:layout_marginTop="5dp"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:textColor="@color/app_text_muted"
+                android:textSize="13sp"
+                tools:text="email@example.com" />
         </LinearLayout>
 
-
         <ImageView
-            android:layout_width="50dp"
-            android:layout_height="wrap_content"
-            android:src="@drawable/arrow">
-        </ImageView>
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:padding="6dp"
+            android:src="@drawable/arrow"
+            app:tint="@color/app_primary" />
     </LinearLayout>
-
-
-</LinearLayout>
+</com.google.android.material.card.MaterialCardView>

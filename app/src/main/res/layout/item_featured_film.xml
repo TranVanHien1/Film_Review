@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="150dp"
+    android:layout_height="250dp"
+    android:layout_marginEnd="12dp"
+    android:clickable="true"
+    android:focusable="true"
+    android:foreground="?attr/selectableItemBackground"
+    app:cardCornerRadius="8dp"
+    app:cardElevation="6dp"
+    app:strokeColor="#F0CAC5"
+    app:strokeWidth="1dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/bg_featured_card"
+        android:orientation="vertical"
+        android:padding="8dp">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="170dp">
+
+            <ImageView
+                android:id="@+id/imgFeaturedPoster"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/bg_app_poster"
+                android:padding="3dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/ic_poster" />
+
+            <TextView
+                android:id="@+id/txtFeaturedBadge"
+                android:layout_width="wrap_content"
+                android:layout_height="26dp"
+                android:layout_gravity="top|start"
+                android:layout_margin="7dp"
+                android:background="@drawable/bg_featured_badge"
+                android:gravity="center"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
+                android:text="Nổi bật"
+                android:textColor="@color/white"
+                android:textSize="11sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/txtFeaturedRating"
+                android:layout_width="wrap_content"
+                android:layout_height="26dp"
+                android:layout_gravity="bottom|end"
+                android:layout_margin="7dp"
+                android:background="@drawable/bg_actor_image_picker_badge"
+                android:gravity="center"
+                android:minWidth="54dp"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
+                android:textColor="@color/app_primary"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                tools:text="★ 4.5" />
+        </FrameLayout>
+
+        <TextView
+            android:id="@+id/txtFeaturedTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:textColor="@color/app_text"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            tools:text="Tên phim nổi bật" />
+
+        <TextView
+            android:id="@+id/txtFeaturedMeta"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:textColor="@color/app_text_muted"
+            android:textSize="12sp"
+            tools:text="2026 • Đạo diễn" />
+    </LinearLayout>
+</com.google.android.material.card.MaterialCardView>

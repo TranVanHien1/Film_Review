@@ -1,61 +1,76 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_actor_list_screen"
+    android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="132dp"
+        android:background="@drawable/bg_actor_list_header"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingStart="18dp"
+        android:paddingEnd="18dp">
+
+        <ImageView
+            android:id="@+id/btnBackToAdminFromNot"
+            android:layout_width="42dp"
+            android:layout_height="42dp"
+            android:background="@drawable/bg_actor_toolbar_button"
+            android:contentDescription="Quay lại"
+            android:padding="10dp"
+            android:src="@drawable/ic_back"
+            app:tint="@color/white" />
+
         <LinearLayout
-            android:orientation="vertical"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="12dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:orientation="horizontal"
-                android:background="#ff6e6c">
-
-                <ImageView
-                    android:id="@+id/btnBackToAdminFromNot"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:src="@drawable/ic_back"
-                    android:layout_gravity="center"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginBottom="5dp">
-                </ImageView>
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:textSize="20dp"
-                    android:text="Thông báo"
-                    android:textColor="@color/white"
-                    android:layout_gravity="center"
-                    android:textAlignment="center">
-                </TextView>
-                <ImageView
-                    android:id="@+id/btnAddNot"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:src="@drawable/ic_add"
-                    android:layout_gravity="center"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginBottom="5dp">
-
-                </ImageView>
-            </LinearLayout>
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recyclerView"
+            <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="10dp"/>
+                android:text="Quản lý thông báo"
+                android:textColor="@color/white"
+                android:textSize="24sp"
+                android:textStyle="bold" />
 
-            </LinearLayout>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="Tạo và chỉnh sửa thông báo"
+                android:textColor="#FDE7E4"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/btnAddNot"
+            android:layout_width="46dp"
+            android:layout_height="46dp"
+            android:background="@drawable/bg_actor_toolbar_button"
+            android:contentDescription="Thêm thông báo"
+            android:padding="10dp"
+            android:src="@drawable/ic_add"
+            app:tint="@color/white" />
     </LinearLayout>
-</LinearLayout>
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="-12dp"
+        android:layout_weight="1"
+        android:clipToPadding="false"
+        android:paddingStart="14dp"
+        android:paddingEnd="14dp"
+        android:paddingBottom="18dp"
+        tools:listitem="@layout/item_notification" />
+</LinearLayout>

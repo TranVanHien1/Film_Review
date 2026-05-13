@@ -3,57 +3,75 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:orientation="vertical"
     android:padding="20dp"
     tools:ignore="MissingDefaultResource">
 
-    <LinearLayout
-        android:orientation="vertical"
+    <TextView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:text="Đánh giá phim"
+        android:textColor="@color/app_text"
+        android:textSize="20sp"
+        android:textStyle="bold" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Đánh giá nội dung:" >
-        </TextView>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Nội dung"
+        android:textColor="@color/app_text_muted"
+        android:textStyle="bold" />
 
-        <RatingBar
-            android:id="@+id/ratingContent"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:numStars="5"
-            android:stepSize="1.0" />
+    <RatingBar
+        android:id="@+id/ratingContent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:numStars="5"
+        android:progressTint="@color/gold"
+        android:stepSize="1.0" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Đánh giá hiệu ứng:" />
-        <RatingBar
-            android:id="@+id/ratingEffect"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:numStars="5"
-            android:stepSize="1.0" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Hiệu ứng"
+        android:textColor="@color/app_text_muted"
+        android:textStyle="bold" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Đánh giá diễn xuất:" />
+    <RatingBar
+        android:id="@+id/ratingEffect"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:numStars="5"
+        android:progressTint="@color/gold"
+        android:stepSize="1.0" />
 
-        <RatingBar
-            android:id="@+id/ratingCast"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:numStars="5"
-            android:stepSize="1.0" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Diễn xuất"
+        android:textColor="@color/app_text_muted"
+        android:textStyle="bold" />
 
-        <EditText
-            android:id="@+id/editComment"
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:hint="Nhận xét của bạn"
-            android:gravity="top"
-            android:inputType="textMultiLine" />
+    <RatingBar
+        android:id="@+id/ratingCast"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:numStars="5"
+        android:progressTint="@color/gold"
+        android:stepSize="1.0" />
 
-    </LinearLayout>
+    <EditText
+        android:id="@+id/editComment"
+        android:layout_width="match_parent"
+        android:layout_height="110dp"
+        android:layout_marginTop="14dp"
+        android:background="@drawable/bg_actor_form_input"
+        android:gravity="top|start"
+        android:hint="Nhận xét của bạn"
+        android:inputType="textMultiLine"
+        android:padding="14dp" />
 </LinearLayout>

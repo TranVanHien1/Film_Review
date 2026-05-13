@@ -1,117 +1,169 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/bg_actor_list_screen"
     android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:layout_height="132dp"
+        android:background="@drawable/bg_actor_list_header"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingStart="18dp"
+        android:paddingEnd="18dp">
+
+        <ImageView
+            android:id="@+id/btnBackToFilmListFromRating"
+            android:layout_width="42dp"
+            android:layout_height="42dp"
+            android:background="@drawable/bg_actor_toolbar_button"
+            android:contentDescription="Quay lại"
+            android:padding="10dp"
+            android:src="@drawable/ic_back"
+            app:tint="@color/white" />
 
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:orientation="horizontal"
-            android:background="#ff6e6c">
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="12dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
 
-            <ImageView
-                android:id="@+id/btnBackToFilmListFromRating"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:src="@drawable/ic_back"
-                android:layout_gravity="center"
-                android:layout_marginLeft="10dp"
-                android:layout_marginBottom="5dp">
-            </ImageView>
             <TextView
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:textSize="20dp"
                 android:text="Đánh giá phim"
                 android:textColor="@color/white"
-                android:layout_gravity="center"
-                android:textAlignment="center">
-            </TextView>
-            <ImageView
-                android:id="@+id/btnRating"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:src="@drawable/ic_add"
-                android:layout_gravity="center"
-                android:layout_marginLeft="10dp"
-                android:layout_marginBottom="5dp"/>
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="Quản lý bình luận và điểm số"
+                android:textColor="#FDE7E4"
+                android:textSize="14sp" />
         </LinearLayout>
+
+        <ImageView
+            android:id="@+id/btnRating"
+            android:layout_width="46dp"
+            android:layout_height="46dp"
+            android:background="@drawable/bg_actor_toolbar_button"
+            android:contentDescription="Thông tin đánh giá"
+            android:padding="10dp"
+            android:src="@drawable/ic_add"
+            app:tint="@color/white" />
+    </LinearLayout>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="-28dp"
+        android:layout_marginEnd="18dp"
+        app:cardBackgroundColor="@color/white"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="6dp"
+        app:strokeColor="#F1D6D2"
+        app:strokeWidth="1dp">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:gravity="center_vertical"
             android:orientation="horizontal"
-            android:padding="2dp">
+            android:paddingStart="14dp"
+            android:paddingTop="10dp"
+            android:paddingEnd="14dp"
+            android:paddingBottom="10dp">
 
             <ImageView
-                android:layout_width="40dp"
-                android:layout_height="40dp"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:contentDescription="@null"
                 android:src="@drawable/ic_search"
-                android:layout_marginTop="10dp"
-                android:layout_marginRight="10dp" />
+                app:tint="#7A5151" />
 
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1">
+                android:layout_marginStart="10dp"
+                android:layout_weight="1"
+                app:boxBackgroundMode="none"
+                app:hintEnabled="false">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/txtSearchCommentInList"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="Nhập người dùng cần tìm"
-                    android:paddingTop="10dp"
-                    android:paddingBottom="10dp"
-                    android:background="@drawable/custtomedit"
-                    android:inputType="textMultiLine"
-                    android:gravity="top|start"
-                    android:scrollHorizontally="false" />
+                    android:layout_height="48dp"
+                    android:background="@android:color/transparent"
+                    android:gravity="center_vertical"
+                    android:hint="Tìm người dùng"
+                    android:inputType="text"
+                    android:maxLines="1"
+                    android:paddingStart="0dp"
+                    android:paddingEnd="0dp"
+                    android:textColor="@color/app_text"
+                    android:textColorHint="#9A8585"
+                    android:textSize="15sp" />
             </com.google.android.material.textfield.TextInputLayout>
-
         </LinearLayout>
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerViewComments"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+    </com.google.android.material.card.MaterialCardView>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewComments"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="14dp"
+        android:layout_weight="1"
+        android:clipToPadding="false"
+        android:paddingStart="14dp"
+        android:paddingEnd="14dp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        tools:listitem="@layout/item_comment" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:paddingStart="18dp"
+        android:paddingEnd="18dp">
+
+        <ImageView
+            android:id="@+id/btnBack"
+            android:layout_width="38dp"
+            android:layout_height="38dp"
+            android:background="@drawable/bg_app_menu_card"
+            android:contentDescription="Trang trước"
             android:padding="10dp"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
-        <LinearLayout
-            android:layout_width="match_parent"
+            android:src="@drawable/ic_left" />
+
+        <TextView
+            android:id="@+id/txtPageNumber"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center"
-            android:padding="16dp">
+            android:layout_marginStart="18dp"
+            android:layout_marginEnd="18dp"
+            android:text="Trang 1/1"
+            android:textColor="@color/app_text"
+            android:textSize="16sp"
+            android:textStyle="bold" />
 
-            <ImageView
-                android:id="@+id/btnBack"
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:src="@drawable/ic_left"/>
-
-            <TextView
-                android:id="@+id/txtPageNumber"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Trang 1/1"
-                android:layout_marginStart="16dp"
-                android:layout_marginEnd="16dp"
-                android:textSize="16sp" />
-
-            <ImageView
-                android:id="@+id/btnNext"
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:src="@drawable/ic_right"/>
-        </LinearLayout>
-
-
-
+        <ImageView
+            android:id="@+id/btnNext"
+            android:layout_width="38dp"
+            android:layout_height="38dp"
+            android:background="@drawable/bg_app_menu_card"
+            android:contentDescription="Trang sau"
+            android:padding="10dp"
+            android:src="@drawable/ic_right" />
     </LinearLayout>
-</ScrollView>
+</LinearLayout>

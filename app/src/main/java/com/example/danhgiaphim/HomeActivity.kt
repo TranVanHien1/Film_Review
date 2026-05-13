@@ -4,12 +4,16 @@ import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.view.View
 import android.widget.PopupMenu
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.danhgiaphim.User.UserActivity
+import com.example.danhgiaphim.adapter.FeaturedFilmAdapter
 import com.example.danhgiaphim.adapter.FilmGridAdapter
 import com.example.danhgiaphim.data.Films
 import com.example.danhgiaphim.data.Rating
@@ -24,9 +28,11 @@ class HomeActivity : AppCompatActivity() {
     private lateinit var userRef: DatabaseReference
 
     private lateinit var filmAdapter: FilmGridAdapter
+    private lateinit var featuredFilmAdapter: FeaturedFilmAdapter
     private val filmList = mutableListOf<Films>()
     private var filteredFilms = listOf<Films>()
     private val filmRatingPairs = mutableListOf<Pair<Films, Rating?>>()
+    private var currentRatingMap: Map<String, Rating?> = emptyMap()
 
     private var currentPage = 1
     private val filmsPerPage = 15
@@ -59,6 +65,7 @@ class HomeActivity : AppCompatActivity() {
         setupUserMenu()
         setupSortButton()
         updateSortButtonText()
+        setupHomeChips()
 
         fetchGenres()
         fetchFilmsAndRatings()
@@ -68,6 +75,12 @@ class HomeActivity : AppCompatActivity() {
         userRef.addListenerForSingleValueEvent(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 val avatarUrl = snapshot.child("avatarURL").getValue(String::class.java) ?: ""
+                val userName = snapshot.child("username").getValue(String::class.java).orEmpty()
+                homeBinding.txtHomeUserName.text = if (userName.isNotBlank()) {
+                    "Xin chào, $userName"
+                } else {
+                    "Khám phá và đánh giá phim"
+                }
                 if (avatarUrl.isNotEmpty()) {
                     Glide.with(this@HomeActivity)
                         .load(avatarUrl)
@@ -92,6 +105,22 @@ class HomeActivity : AppCompatActivity() {
         homeBinding.recyclerViewFilms.layoutManager = GridLayoutManager(this, spanCount)
         filmAdapter = FilmGridAdapter(this, filmList, itemWidth)
         homeBinding.recyclerViewFilms.adapter = filmAdapter
+
+        homeBinding.recyclerFeaturedFilms.layoutManager =
+            LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
+        featuredFilmAdapter = FeaturedFilmAdapter(this)
+        homeBinding.recyclerFeaturedFilms.adapter = featuredFilmAdapter
+
+        homeBinding.recyclerFeaturedFilms.addItemDecoration(object : RecyclerView.ItemDecoration() {
+            override fun getItemOffsets(
+                outRect: android.graphics.Rect,
+                view: View,
+                parent: RecyclerView,
+                state: RecyclerView.State
+            ) {
+                outRect.right = 8
+            }
+        })
     }
 
     private fun setupSearchListener() {
@@ -211,6 +240,47 @@ class HomeActivity : AppCompatActivity() {
     }
 
     // Hàm áp dụng chế độ sắp xếp hiện tại
+    private fun setupHomeChips() {
+        homeBinding.chipSortRecommend.isChecked = currentSortMode == SortMode.BY_RATING
+        homeBinding.chipSortFavorite.isChecked = currentSortMode == SortMode.BY_AI_RATING
+
+        homeBinding.chipGroupSort.setOnCheckedStateChangeListener { _, checkedIds ->
+            currentSortMode = when (checkedIds.firstOrNull()) {
+                homeBinding.chipSortFavorite.id -> SortMode.BY_AI_RATING
+                else -> SortMode.BY_RATING
+            }
+            homeBinding.chipSortRecommend.isChecked = currentSortMode == SortMode.BY_RATING
+            homeBinding.chipSortFavorite.isChecked = currentSortMode == SortMode.BY_AI_RATING
+            applyCurrentSortMode()
+        }
+
+        homeBinding.chipGenreAll.setOnClickListener {
+            selectedGenre = null
+            homeBinding.chipGenreAll.isChecked = true
+            homeBinding.chipGenrePicker.isChecked = false
+            homeBinding.chipGenrePicker.text = "Thể loại"
+            filterFilms(homeBinding.txtSearchFilmInHome.text.toString())
+        }
+
+        homeBinding.chipGenrePicker.setOnClickListener { view ->
+            val popup = PopupMenu(this, view)
+            genreList.forEach { genre ->
+                popup.menu.add(genre)
+            }
+            popup.menu.add("Hiển thị toàn bộ phim")
+
+            popup.setOnMenuItemClickListener { item ->
+                selectedGenre = if (item.title == "Hiển thị toàn bộ phim") null else item.title.toString()
+                homeBinding.chipGenreAll.isChecked = selectedGenre == null
+                homeBinding.chipGenrePicker.isChecked = selectedGenre != null
+                homeBinding.chipGenrePicker.text = selectedGenre ?: "Thể loại"
+                filterFilms(homeBinding.txtSearchFilmInHome.text.toString())
+                true
+            }
+            popup.show()
+        }
+    }
+
     private fun applyCurrentSortMode() {
         val sortedPairs = when (currentSortMode) {
             SortMode.BY_RATING -> {
@@ -239,6 +309,8 @@ class HomeActivity : AppCompatActivity() {
 
     private fun fetchFilmsAndRatings() {
         try {
+            homeBinding.progressHomeLoading.visibility = View.VISIBLE
+            homeBinding.layoutEmptyState.visibility = View.GONE
             val filmRef = FirebaseDatabase.getInstance().getReference("Films")
             val ratingRef = FirebaseDatabase.getInstance().getReference("Rating")
 
@@ -291,11 +363,13 @@ class HomeActivity : AppCompatActivity() {
                 }
 
                 override fun onCancelled(error: DatabaseError) {
+                    homeBinding.progressHomeLoading.visibility = View.GONE
                     Toast.makeText(this@HomeActivity, "Lỗi tải rating: ${error.message}", Toast.LENGTH_SHORT).show()
                     fetchFilmsWithRatings(filmRef, emptyMap())
                 }
             })
         } catch (e: Exception) {
+            homeBinding.progressHomeLoading.visibility = View.GONE
             e.printStackTrace()
             Toast.makeText(this, "Lỗi kết nối database: ${e.message}", Toast.LENGTH_SHORT).show()
         }
@@ -306,6 +380,9 @@ class HomeActivity : AppCompatActivity() {
             override fun onDataChange(filmSnapshot: DataSnapshot) {
                 try {
                     filmRatingPairs.clear()
+                    currentRatingMap = ratingMap
+                    filmAdapter.setRatings(currentRatingMap)
+                    featuredFilmAdapter.setRatings(currentRatingMap)
 
                     for (child in filmSnapshot.children) {
                         try {
@@ -322,8 +399,10 @@ class HomeActivity : AppCompatActivity() {
 
                     // Thay thế sắp xếp cũ bằng hàm applyCurrentSortMode
                     applyCurrentSortMode()
+                    homeBinding.progressHomeLoading.visibility = View.GONE
 
                 } catch (e: Exception) {
+                    homeBinding.progressHomeLoading.visibility = View.GONE
                     e.printStackTrace()
                     runOnUiThread {
                         Toast.makeText(this@HomeActivity, "Lỗi xử lý dữ liệu phim: ${e.message}", Toast.LENGTH_SHORT).show()
@@ -332,6 +411,7 @@ class HomeActivity : AppCompatActivity() {
             }
 
             override fun onCancelled(error: DatabaseError) {
+                homeBinding.progressHomeLoading.visibility = View.GONE
                 runOnUiThread {
                     Toast.makeText(this@HomeActivity, "Lỗi tải phim: ${error.message}", Toast.LENGTH_SHORT).show()
                 }
@@ -357,7 +437,24 @@ class HomeActivity : AppCompatActivity() {
     }
 
     private fun updatePaginationUI() {
+        val hasFilms = filteredFilms.isNotEmpty()
+        homeBinding.layoutEmptyState.visibility = if (hasFilms) View.GONE else View.VISIBLE
+        homeBinding.recyclerViewFilms.visibility = if (hasFilms) View.VISIBLE else View.GONE
+        homeBinding.paginationLayout.visibility = if (hasFilms) View.VISIBLE else View.GONE
+        updateFeaturedFilm()
+
+        if (!hasFilms) {
+            totalPages = 1
+            currentPage = 1
+            homeBinding.txtPageIndicator.text = "Trang 1"
+            homeBinding.btnPrev.isEnabled = false
+            homeBinding.btnNext.isEnabled = false
+            filmAdapter.updateList(emptyList())
+            return
+        }
+
         totalPages = (filteredFilms.size + filmsPerPage - 1) / filmsPerPage
+        if (currentPage > totalPages) currentPage = totalPages
         homeBinding.txtPageIndicator.text = "Trang $currentPage"
         homeBinding.btnPrev.isEnabled = currentPage > 1
         homeBinding.btnNext.isEnabled = currentPage < totalPages
@@ -366,5 +463,38 @@ class HomeActivity : AppCompatActivity() {
         val endIndex = minOf(startIndex + filmsPerPage, filteredFilms.size)
         val pagedList = filteredFilms.subList(startIndex, endIndex)
         filmAdapter.updateList(pagedList)
+    }
+
+    private fun updateFeaturedFilm() {
+        val featuredFilms = filteredFilms.take(4)
+        homeBinding.layoutFeaturedFilm.visibility = View.GONE
+        if (featuredFilms.isEmpty()) {
+            homeBinding.layoutFeaturedFilms.visibility = View.GONE
+            featuredFilmAdapter.updateList(emptyList())
+            return
+        }
+
+        homeBinding.layoutFeaturedFilms.visibility = View.VISIBLE
+        featuredFilmAdapter.updateList(featuredFilms)
+    }
+
+    private fun updateFeaturedFilmOld() {
+        val film = filteredFilms.firstOrNull()
+        if (film == null) {
+            homeBinding.layoutFeaturedFilm.visibility = View.GONE
+            return
+        }
+
+        val rating = currentRatingMap[film.movieID]?.rating ?: 0F
+        homeBinding.layoutFeaturedFilm.visibility = View.VISIBLE
+        homeBinding.txtFeaturedTitle.text = film.title
+        homeBinding.txtFeaturedMeta.text = listOf(film.releaseYear, film.director)
+            .filter { it.isNotBlank() }
+            .joinToString(" • ")
+            .ifBlank { "Đang cập nhật" }
+        homeBinding.txtFeaturedRating.text = if (rating > 0F) "★ %.1f".format(rating) else "★ --"
+        Glide.with(this)
+            .load(film.posterURL)
+            .into(homeBinding.imgFeaturedPoster)
     }
 }

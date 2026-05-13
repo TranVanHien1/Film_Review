@@ -1,126 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#d1d1e9">
+    android:background="@drawable/bg_actor_list_screen">
 
-
-
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:orientation="horizontal"
-            android:background="#ff6e6c">
-
-            <ImageView
-                android:id="@+id/btnBackToUserListFromDetail"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:src="@drawable/ic_back"
-                android:layout_gravity="center"
-                android:layout_marginLeft="10dp"
-                android:layout_marginBottom="5dp">
-            </ImageView>
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Chi tiết tài khoản"
-                android:textSize="20dp"
-                android:textColor="@color/white"
-                android:layout_gravity="center"
-                android:textAlignment="center">
-
-            </TextView>
-
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical">
+        <LinearLayout android:layout_width="match_parent" android:layout_height="132dp" android:background="@drawable/bg_actor_list_header" android:gravity="center_vertical" android:orientation="horizontal" android:paddingStart="18dp" android:paddingEnd="18dp">
+            <ImageView android:id="@+id/btnBackToUserListFromDetail" android:layout_width="42dp" android:layout_height="42dp" android:background="@drawable/bg_actor_toolbar_button" android:contentDescription="Quay lại" android:padding="10dp" android:src="@drawable/ic_back" app:tint="@color/white" />
+            <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_marginStart="16dp" android:layout_weight="1" android:orientation="vertical">
+                <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Chi tiết tài khoản" android:textColor="@color/white" android:textSize="24sp" android:textStyle="bold" />
+                <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:text="Thông tin người dùng" android:textColor="#FDE7E4" android:textSize="14sp" />
+            </LinearLayout>
         </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="20dp">
-            <ImageView
-                android:id="@+id/imgAvatar"
-                android:layout_width="150dp"
-                android:layout_height="150dp"
-                android:layout_gravity="center"
-                android:scaleType="centerCrop"
-                android:src="@drawable/ic_user"
-                android:layout_marginBottom="20dp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Tên tài khoản:">
-
-            </TextView>
-            <EditText
-                android:id="@+id/dtUsername"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Username"
-                android:layout_margin="10dp"
-                android:enabled="false">
-            </EditText>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Email đăng nhập:">
-            </TextView>
-            <EditText
-                android:id="@+id/dtEmail"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Username"
-                android:layout_margin="10dp"
-                android:enabled="false">
-            </EditText>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Giới tính:">
-
-            </TextView>
-            <EditText
-                android:id="@+id/dtGender"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Username"
-                android:layout_margin="10dp"
-                android:enabled="false">
-            </EditText>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Ngày sinh:">
-
-            </TextView>
-            <EditText
-                android:id="@+id/dtDateOfBirth"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Username"
-                android:layout_margin="10dp"
-                android:enabled="false">
-            </EditText>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="ID người dùng:">
-
-            </TextView>
-            <EditText
-                android:id="@+id/dtUserID"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Username"
-                android:layout_margin="10dp"
-                android:enabled="false">
-            </EditText>
-        </LinearLayout>
+        <com.google.android.material.card.MaterialCardView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginStart="18dp" android:layout_marginTop="-28dp" android:layout_marginEnd="18dp" android:layout_marginBottom="24dp" app:cardBackgroundColor="@color/white" app:cardCornerRadius="8dp" app:cardElevation="6dp" app:strokeColor="#F1D6D2" app:strokeWidth="1dp">
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:padding="18dp">
+                <ImageView android:id="@+id/imgAvatar" android:layout_width="132dp" android:layout_height="132dp" android:layout_gravity="center" android:background="@drawable/bg_actor_avatar" android:padding="4dp" android:scaleType="centerCrop" android:src="@drawable/ic_user" />
+                <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="18dp" android:text="Tên tài khoản" android:textColor="@color/app_text" android:textStyle="bold" />
+                <EditText android:id="@+id/dtUsername" android:layout_width="match_parent" android:layout_height="52dp" android:layout_marginTop="8dp" android:background="@drawable/bg_app_info_field" android:enabled="false" android:text="Username" />
+                <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="14dp" android:text="Email đăng nhập" android:textColor="@color/app_text" android:textStyle="bold" />
+                <EditText android:id="@+id/dtEmail" android:layout_width="match_parent" android:layout_height="52dp" android:layout_marginTop="8dp" android:background="@drawable/bg_app_info_field" android:enabled="false" android:text="Email" />
+                <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="14dp" android:text="Giới tính" android:textColor="@color/app_text" android:textStyle="bold" />
+                <EditText android:id="@+id/dtGender" android:layout_width="match_parent" android:layout_height="52dp" android:layout_marginTop="8dp" android:background="@drawable/bg_app_info_field" android:enabled="false" android:text="Giới tính" />
+                <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="14dp" android:text="Ngày sinh" android:textColor="@color/app_text" android:textStyle="bold" />
+                <EditText android:id="@+id/dtDateOfBirth" android:layout_width="match_parent" android:layout_height="52dp" android:layout_marginTop="8dp" android:background="@drawable/bg_app_info_field" android:enabled="false" android:text="Ngày sinh" />
+                <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="14dp" android:text="ID người dùng" android:textColor="@color/app_text" android:textStyle="bold" />
+                <EditText android:id="@+id/dtUserID" android:layout_width="match_parent" android:layout_height="52dp" android:layout_marginTop="8dp" android:background="@drawable/bg_app_info_field" android:enabled="false" android:text="ID" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
     </LinearLayout>
 </ScrollView>
