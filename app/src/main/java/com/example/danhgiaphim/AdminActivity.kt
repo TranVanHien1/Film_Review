@@ -1,52 +1,43 @@
 package com.example.danhgiaphim
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.cloudinary.android.MediaManager
+import androidx.activity.compose.setContent
+import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatActivity
 import com.example.danhgiaphim.Admin.ActorListActivity
 import com.example.danhgiaphim.Admin.FilmListActivity
 import com.example.danhgiaphim.Admin.GenreListActivity
 import com.example.danhgiaphim.Admin.UserListActivity
 import com.example.danhgiaphim.Notifi.AddNotificationActivity
-import com.example.danhgiaphim.User.UserActivity
-import com.example.danhgiaphim.databinding.ActivityAdminBinding
-import java.util.HashMap
+import com.example.danhgiaphim.ui.admin.AdminHomeViewModel
+import com.example.danhgiaphim.ui.compose.AdminHomeScreen
+import com.example.danhgiaphim.ui.compose.DanhGiaPhimTheme
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class AdminActivity : AppCompatActivity() {
-
-    lateinit var adminBinding: ActivityAdminBinding
+    private val viewModel: AdminHomeViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        adminBinding = ActivityAdminBinding.inflate(layoutInflater)
-        val view = adminBinding.root
-        setContentView(view)
-
-        adminBinding.btnDanhSachUser.setOnClickListener(){
-            val intent = Intent(this, UserListActivity::class.java)
-            startActivity(intent)
-        }
-        adminBinding.btnDanhSachPhim.setOnClickListener(){
-            val intent = Intent(this, FilmListActivity::class.java)
-            startActivity(intent)
-        }
-        adminBinding.btnDanhSachDienVien.setOnClickListener(){
-            val intent = Intent(this, ActorListActivity::class.java)
-            startActivity(intent)
-        }
-        adminBinding.btnDanhSachTheLoai.setOnClickListener(){
-            val intent = Intent(this, GenreListActivity::class.java)
-            startActivity(intent)
-        }
-
-        adminBinding.btnDanhSachThongbao.setOnClickListener(){
-            val intent = Intent(this, AddNotificationActivity::class.java)
-            startActivity(intent)
-        }
-        adminBinding.btnlogout.setOnClickListener(){
-            val intent = Intent(this, LoginActivity::class.java)
-            startActivity(intent)
+        setContent {
+            DanhGiaPhimTheme {
+                AdminHomeScreen(
+                    onUsers = { startActivity(Intent(this, UserListActivity::class.java)) },
+                    onFilms = { startActivity(Intent(this, FilmListActivity::class.java)) },
+                    onActors = { startActivity(Intent(this, ActorListActivity::class.java)) },
+                    onGenres = { startActivity(Intent(this, GenreListActivity::class.java)) },
+                    onNotifications = { startActivity(Intent(this, AddNotificationActivity::class.java)) },
+                    onLogout = {
+                        viewModel.signOut()
+                        val intent = Intent(this, LoginActivity::class.java)
+                        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                        startActivity(intent)
+                        finish()
+                    }
+                )
+            }
         }
     }
 }

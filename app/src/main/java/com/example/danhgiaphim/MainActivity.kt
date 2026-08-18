@@ -1,41 +1,47 @@
 package com.example.danhgiaphim
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Button
-import android.widget.EditText
-import android.widget.ImageView
-import android.widget.TextView
-import android.widget.Toast
-import com.cloudinary.android.MediaManager
-import com.example.danhgiaphim.databinding.ActivityMainBinding
-import com.example.danhgiaphim.databinding.ActivitySignBinding
+import androidx.activity.compose.setContent
+import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatActivity
+import com.example.danhgiaphim.ui.compose.DanhGiaPhimTheme
+import com.example.danhgiaphim.ui.compose.MainScreen
+import com.example.danhgiaphim.ui.main.MainViewModel
 import com.google.firebase.FirebaseApp
-import java.util.HashMap
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
-    lateinit var mainBinding : ActivityMainBinding
+    private val viewModel: MainViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         FirebaseApp.initializeApp(this)
-        mainBinding = ActivityMainBinding.inflate(layoutInflater)
-        val view = mainBinding.root
-        setContentView(view)
+        viewModel.restoreSession()
 
-        mainBinding.btnemail.setOnClickListener(){
-            val intent = Intent(this, LoginActivity::class.java)
-            startActivity(intent)
-            finish()
+        setContent {
+            DanhGiaPhimTheme {
+                MainScreen(
+                    viewModel = viewModel,
+                    onLogin = {
+                        startActivity(Intent(this, LoginActivity::class.java))
+                        finish()
+                    },
+                    onRegister = {
+                        startActivity(Intent(this, SignActivity::class.java))
+                        finish()
+                    },
+                    onAdmin = { openAndFinish(AdminActivity::class.java) },
+                    onHome = { openAndFinish(HomeActivity::class.java) }
+                )
+            }
         }
+    }
 
-        mainBinding.btnOtp.setOnClickListener(){
-            val intent = Intent(this, SignActivity::class.java)
-            startActivity(intent)
-            finish()
-        }
-
+    private fun openAndFinish(activityClass: Class<*>) {
+        startActivity(Intent(this, activityClass))
+        finish()
     }
 }

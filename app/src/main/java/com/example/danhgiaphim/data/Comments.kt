@@ -9,6 +9,7 @@ data class Comments(val filmID : String = "",
                     val comment : String = "",
                     var like : Long = 0L,
                     val reviewDate : String = "",
+                    val reviewTimestamp : Long = 0L,
                     val sentimentLabel : String? = null){
 
 }
